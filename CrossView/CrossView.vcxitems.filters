@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="core">
+      <UniqueIdentifier>{b03b17e1-ad24-478f-9925-99a7a686c11e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="backends">
+      <UniqueIdentifier>{d86378c4-56f8-41be-96dc-7429989612e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="backends\entrypoint">
+      <UniqueIdentifier>{072b5ae4-14f0-43e8-8440-bc39ccbdc11f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="jobsystem">
+      <UniqueIdentifier>{851a87b0-6caa-405a-99ee-5281f0d7d321}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\ThreadPool.h">
+      <Filter>jobsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\WaitFreeQueue.h">
+      <Filter>jobsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\Coroutine.h">
+      <Filter>jobsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\CrossView.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\EntryPoint.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\EntryPoint_Crossplatform.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\InputSystem.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\EntryPoint_Headless.h">
+      <Filter>backends\entrypoint</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\EntryPoint_Win32.h">
+      <Filter>backends\entrypoint</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\Utilities.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\framework.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\EntryPoint_Android.h">
+      <Filter>backends\entrypoint</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\EntryPoint_X11.h">
+      <Filter>backends\entrypoint</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\EntryPoint_Crossplatform.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\EntryPoint_Headless.cpp">
+      <Filter>backends\entrypoint</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\EntryPoint_Win32.cpp">
+      <Filter>backends\entrypoint</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\EntryPoint_Wasm.h">
+      <Filter>backends\entrypoint</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\EntryPoint_Wasm.cpp">
+      <Filter>backends\entrypoint</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\EntryPoint_X11.cpp">
+      <Filter>backends\entrypoint</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
