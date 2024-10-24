@@ -16,8 +16,7 @@ namespace almond {
             std::suspend_always final_suspend() noexcept { return {}; }
 
             void unhandled_exception() {
-                std::cerr << "Unhandled exception in coroutine." << std::endl;
-                std::exit(1);
+                exceptionPtr = std::current_exception();
             }
 
             void return_void() {}
@@ -27,7 +26,8 @@ namespace almond {
                 return {};
             }
 
-            int currentValue;
+            int currentValue{};
+            std::exception_ptr exceptionPtr;
         };
 
         using handle_type = std::coroutine_handle<promise_type>;
@@ -35,15 +35,12 @@ namespace almond {
         Coroutine(handle_type h) : handle(h) {}
 
         // Move constructor and assignment
-        Coroutine(Coroutine&& other) noexcept : handle(other.handle) {
-            other.handle = nullptr; // Avoid double destruction
-        }
+        Coroutine(Coroutine&& other) noexcept : handle(std::exchange(other.handle, nullptr)) {}
 
         Coroutine& operator=(Coroutine&& other) noexcept {
             if (this != &other) {
-                if (handle) handle.destroy(); // Clean up current coroutine
-                handle = other.handle;
-                other.handle = nullptr; // Avoid double destruction
+                if (handle) handle.destroy();
+                handle = std::exchange(other.handle, nullptr);
             }
             return *this;
         }
@@ -52,14 +49,20 @@ namespace almond {
 
         // Resume the coroutine
         bool resume() {
-            if (handle) {
+            if (handle && !handle.done()) {
                 handle.resume();
+                if (handle.promise().exceptionPtr) {
+                    std::rethrow_exception(handle.promise().exceptionPtr);
+                }
                 return !handle.done();
             }
             return false;
         }
 
         int current_value() const {
+            if (!handle || handle.done()) {
+                throw std::runtime_error("Coroutine not in valid state to retrieve value.");
+            }
             return handle.promise().currentValue;
         }
 

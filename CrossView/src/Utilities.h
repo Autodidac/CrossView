@@ -4,6 +4,7 @@
 
 // Crossplatform Console Check 
 #include "framework.h"
+
 #include <consoleapi3.h>
 
 namespace almond

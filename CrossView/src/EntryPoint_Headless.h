@@ -2,9 +2,10 @@
 
 #include "EntryPoint_Crossplatform.h"
 #include "Utilities.h"
+#include "Exports_DLL.h"
 
 namespace almond {
-    class HeadlessEntryPoint : public EntryPoint_Crossplatform {
+    class ENTRYPOINTLIBRARY_API HeadlessEntryPoint : public EntryPoint_Crossplatform {
     public:
         void createEntryPoint(int width, int height, const wchar_t* title) override {}
 

@@ -15,34 +15,34 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
+    <ClInclude Include="src\Example_WindowsProject1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="targetver.h">
+    <ClInclude Include="src\framework.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Resource.h">
+    <ClInclude Include="src\Resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Example_WindowsProject1.h">
+    <ClInclude Include="src\targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Example_WindowsProject1.cpp">
+    <ClCompile Include="src\Example_WindowsProject1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Example_WindowsProject1.rc">
+    <ResourceCompile Include="src\Example_WindowsProject1.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="small.ico">
+    <Image Include="src\Example_WindowsProject1.ico">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Example_WindowsProject1.ico">
+    <Image Include="src\small.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

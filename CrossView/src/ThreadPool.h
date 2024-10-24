@@ -3,7 +3,6 @@
 #include "WaitFreeQueue.h"
 
 #include <atomic>
-#include <condition_variable>
 #include <functional>
 #include <thread>
 #include <vector>
@@ -31,7 +30,7 @@ ThreadPool::ThreadPool(size_t threadCount)
 }
 
 ThreadPool::~ThreadPool() {
-    isRunning = false; // Stop accepting new jobs
+    isRunning = false; // Signal all threads to stop
     for (auto& worker : workers) {
         worker.join(); // Wait for all worker threads to finish
     }
@@ -44,13 +43,22 @@ void ThreadPool::enqueue(std::function<void()> job) {
 void ThreadPool::workerThread() {
     while (isRunning) {
         std::function<void()> job;
-        if (jobQueue.dequeue(job)) {
-            if (job) {   // Ensure job is valid before invoking
-                job();   // Execute the job
+        if (jobQueue.dequeue(job)) {  // Non-blocking dequeue
+            if (job) {
+                job();  // Execute the job
             }
-        } else {
-            std::this_thread::yield(); // Yield CPU if no job is available
+        }
+        else {
+            // Yield CPU to other threads if no job is available
+            std::this_thread::yield();
+        }
+    }
+
+    // Flush remaining jobs before exiting
+    std::function<void()> job;
+    while (jobQueue.dequeue(job)) {
+        if (job) {
+            job();  // Execute remaining job
         }
     }
 }
-

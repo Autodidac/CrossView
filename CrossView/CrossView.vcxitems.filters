@@ -54,6 +54,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)src\EntryPoint_X11.h">
       <Filter>backends\entrypoint</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\Exports_DLL.h">
+      <Filter>core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)src\EntryPoint_Crossplatform.cpp">
@@ -73,6 +76,12 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)src\EntryPoint_X11.cpp">
       <Filter>backends\entrypoint</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\EntryPoint.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\Exports_DLL.cpp">
+      <Filter>core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

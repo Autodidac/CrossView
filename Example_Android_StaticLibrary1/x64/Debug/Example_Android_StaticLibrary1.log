@@ -1,0 +1,9 @@
+﻿  ANDROID_HOME=C:\Program Files (x86)\Android\android-sdk
+  ANDROID_SDK_ROOT=C:\Program Files (x86)\Android\android-sdk
+  ANT_HOME=
+  JAVA_HOME=C:\Program Files\Android\jdk\jdk-8.0.302.8-hotspot\jdk8u302-b08
+  NDK_ROOT=C:\Program Files (x86)\Android\AndroidNDK\android-ndk-r23c
+  pch.h
+  Example_Android_StaticLibrary1.cpp
+C:\Program Files (x86)\Android\AndroidNDK\android-ndk-r23c\toolchains\llvm\prebuilt\windows-x86_64\bin\llvm-ar.exe : warning : creating C:\\Users\\iammi\\Documents\\repos\\CrossView\\bin\\x64\\Debug\\libExample_Android_StaticLibrary1.a
+  Example_Android_StaticLibrary1.vcxproj -> C:\Users\iammi\Documents\repos\CrossView\bin\x64\Debug\libExample_Android_StaticLibrary1.a

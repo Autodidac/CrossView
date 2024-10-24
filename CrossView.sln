@@ -7,7 +7,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrossView", "CrossView\Cros
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Example_ConsoleApplication", "Example_ConsoleApplication\Example_ConsoleApplication.vcxproj", "{4C3AA9FF-3A9D-4916-9963-700F9549FDE6}"
 	ProjectSection(ProjectDependencies) = postProject
-		{7DD2A3C4-CAF8-4F4B-AA36-A3905AC2BD9A} = {7DD2A3C4-CAF8-4F4B-AA36-A3905AC2BD9A}
+		{11BE1D7D-B7C1-4A53-ADEB-6A0FE9014EC8} = {11BE1D7D-B7C1-4A53-ADEB-6A0FE9014EC8}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Example_StaticLib1", "Example_StaticLib1\Example_StaticLib1.vcxproj", "{7DD2A3C4-CAF8-4F4B-AA36-A3905AC2BD9A}"
