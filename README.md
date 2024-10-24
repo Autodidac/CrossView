@@ -169,23 +169,23 @@ void shutdown()
 ### Platform-specific Implementations
 The platform-specific implementation files are organized into separate source files. Each implementation file contains the initialization, window creation, and shutdown code for a specific platform.
 
--Windows: `CrossViewWin32.cpp` and `CrossViewWin32.h`
+-Windows: `EntryPoint_Win32.cpp` and `EntryPoint_Win32.h`
 
--macOS: `CrossViewMac.cpp` and `CrossViewMac.h`
+-macOS: `EntryPoint_Mac.cpp` and `EntryPoint_Mac.h`  // not reimplemented yet
 
--Linux: `CrossViewLinux.cpp` and `CrossViewLinux.h`
+-Linux: `EntryPoint_Linux.cpp` and `EntryPoint_Linux.h`  // not reimplemented yet
 
--Android: `CrossViewAndroid.cpp` and `CrossViewAndroid.h`
+-Android: `EntryPoint_Android.cpp` and `EntryPoint_Android.h`  // not reimplemented yet
 
--iOS: `CrossViewIOS.cpp` and `CrossViewIOS.h`
+-iOS: `EntryPoint_IOS.cpp` and `EntryPoint_IOS.h`  // not reimplemented yet
 
--WebAssembly: `CrossViewWebAssembly.cpp` and `CrossViewWebAssembly.h`
+-WebAssembly: `EntryPoint_WebAssembly.cpp` and `EntryPoint_WebAssembly.h`  // not reimplemented yet
 
--PlayStation 5: `CrossViewPS5.cpp` and `CrossViewPS5.h`
+-PlayStation 5: `EntryPoint_PS5.cpp` and `EntryPoint_PS5.h`  // not reimplemented yet
 
--Xbox: `CrossViewXbox.cpp` and `CrossViewXbox.h`
+-Xbox: `EntryPoint_Xbox.cpp` and `EntryPoint_Xbox.h`  // not reimplemented yet
 
--No-op mode: `CrossViewNoop.cpp` and `CrossViewNoop.h`
+-No-op or Fallback Console: `EntryPoint_Headless.cpp` and `EntryPoint_Headless.h`
 
 
 
