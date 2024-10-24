@@ -12,23 +12,22 @@ CrossView is a cross-platform library designed for creating and managing windows
 ## Features
 
 
-- Cross-platform support for Windows, macOS, Linux, Android, iOS, WebAssembly, PS5, Xbox, and a No-op/Console mode.
-- Window Creation and Management.
+- Cross-platform support planned for Windows, macOS, Linux, Android, iOS, WebAssembly, PS5, Xbox, and a No-op/Console mode.
+- Window Creation and Management on Multiple Operating Systems.
 - Platform-specific implementation details hidden behind a common interface.
-- Namespace 'CrossViewer' Prevents Global Code Leaks
-- C++20 and Factory Pattern Design
+- Namespace 'almond' Prevents Global Code Leaks and seemlessly integrates with the fleshed out engine versions of the library.
+- C++20 and Factory Pattern Design- a bit of old and new, the systems are entirely the highest technology built from hybrid design to accomidate all scenarios.
 - Platform-Specific Factories - Oh yeah did I mention it has FACTORIES?! :D
-- Memory Management and Error Handling
-You’re using std::unique_ptr to manage the CrossView object, which is a safe and efficient choice.
+- Memory Management and Error Handling - yes I am going to port all output to a logger and create an actual debug mode.
+Using std::unique_ptr to manage the CrossView object, which is a safe and efficient choice.
 
 - Split-Screen and VR Features
-In CrossViewNoop, the setSplitScreen and setupVR methods are stubbed out. Ensure that these features are appropriately implemented in the platform-specific classes where applicable.
-
+After Windows Update broke my main ssd I had to rebuild from scratch, split screen features coming in the near future.
 
 
 ## Tested
 
-- Tested in Windows 10/11 With Console headless and WindowsDesktopApplication + headless mode.
+- Tested in Windows 11 With Console and WindowsDesktopApplication, Static and Dll now complete!
 
 <img align="left" src="image/1.png" width="200px"/>
 
@@ -48,7 +47,7 @@ In CrossViewNoop, the setSplitScreen and setupVR methods are stubbed out. Ensure
 - **WebAssembly** (Emscripten)
 - **PlayStation 5** (PS5)
 - **Xbox**
-- **No-op** (Headless mode)
+- **No-op Console** (Headless mode)
 ```
 
 
@@ -80,12 +79,12 @@ In CrossViewNoop, the setSplitScreen and setupVR methods are stubbed out. Ensure
 Simply run the provided vs solution file `CrossView.sln` in the main folder
 
 
+### Build using WIN32 (Windows 11 64bit) and vs code:
+Simply open the provided crossview folder in vs code, customized proj and solution files make this possible.
 
 
 ### Generate build files using CMake:
 Run cmake to generate the build files, then compile:
-
-
 
 
 
@@ -107,8 +106,6 @@ cmake --build .
 Run:
 
 After building, you can run the generated executable. If you built with headless mode, the console window will be allocated as needed.
-
-
 
 
 ### Usage
