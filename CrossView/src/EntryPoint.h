@@ -1,6 +1,7 @@
 #pragma once
 
 #include "EntryPoint_Crossplatform.h"
+
 #include <memory>
 #include <optional>
 #include <string>

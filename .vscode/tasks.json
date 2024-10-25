@@ -2,7 +2,33 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Clean StaticLib with MSBuild",
+      "label": "Clean DLL",
+      "type": "shell",
+      "command": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\MSBuild\\Current\\Bin\\MSBuild.exe",
+      "args": [
+        "${workspaceFolder}\\Example_Dll1\\Example_Dll1.vcxproj",
+        "/t:Clean"
+      ],
+      "problemMatcher": [],
+      "group": { "kind": "build", "isDefault": false }
+    },
+    {
+      "label": "Build DLL",
+      "type": "shell",
+      "command": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\MSBuild\\Current\\Bin\\MSBuild.exe",
+      "args": [
+        "${workspaceFolder}\\Example_Dll1\\Example_Dll1.vcxproj",
+        "/property:GenerateFullPaths=true",
+        "/t:Build",
+        "/p:Configuration=Debug",
+        "/p:ConfigurationType=DynamicLibrary",
+        "/p:OutDir=${workspaceFolder}\\bin\\x64\\Debug\\"
+      ],
+      "problemMatcher": ["$msCompile"],
+      "group": { "kind": "build", "isDefault": false }
+    },
+    {
+      "label": "Clean Static Library",
       "type": "shell",
       "command": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\MSBuild\\Current\\Bin\\MSBuild.exe",
       "args": [
@@ -10,13 +36,10 @@
         "/t:Clean"
       ],
       "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      }
+      "group": { "kind": "build", "isDefault": false }
     },
     {
-      "label": "Build StaticLib with MSBuild",
+      "label": "Build Static Library",
       "type": "shell",
       "command": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\MSBuild\\Current\\Bin\\MSBuild.exe",
       "args": [
@@ -24,18 +47,13 @@
         "/property:GenerateFullPaths=true",
         "/t:Build",
         "/p:Configuration=Debug",
-        "/p:OutDir=${workspaceFolder}\\bin\\x64\\Debug\\"  // Custom output directory for StaticLib
+        "/p:OutDir=${workspaceFolder}\\bin\\x64\\Debug\\"
       ],
-      "problemMatcher": [
-        "$msCompile"
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      }
+      "problemMatcher": ["$msCompile"],
+      "group": { "kind": "build", "isDefault": false }
     },
     {
-      "label": "Clean Exe with MSBuild",
+      "label": "Clean Executable",
       "type": "shell",
       "command": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\MSBuild\\Current\\Bin\\MSBuild.exe",
       "args": [
@@ -43,13 +61,10 @@
         "/t:Clean"
       ],
       "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      }
+      "group": { "kind": "build", "isDefault": false }
     },
     {
-      "label": "Build Exe with MSBuild",
+      "label": "Build Executable",
       "type": "shell",
       "command": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\MSBuild\\Current\\Bin\\MSBuild.exe",
       "args": [
@@ -57,18 +72,13 @@
         "/property:GenerateFullPaths=true",
         "/t:Build",
         "/p:Configuration=Debug",
-        "/p:OutDir=${workspaceFolder}\\bin\\x64\\Debug\\"  // Custom output directory for ConsoleApp
+        "/p:OutDir=${workspaceFolder}\\bin\\x64\\Debug\\"
       ],
-      "problemMatcher": [
-        "$msCompile"
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      }
+      "problemMatcher": ["$msCompile"],
+      "group": { "kind": "build", "isDefault": false }
     },
     {
-      "label": "Clean Windows App with MSBuild",
+      "label": "Clean Windows App",
       "type": "shell",
       "command": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\MSBuild\\Current\\Bin\\MSBuild.exe",
       "args": [
@@ -76,13 +86,10 @@
         "/t:Clean"
       ],
       "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      }
+      "group": { "kind": "build", "isDefault": false }
     },
     {
-      "label": "Build Windows App with MSBuild",
+      "label": "Build Windows App",
       "type": "shell",
       "command": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\MSBuild\\Current\\Bin\\MSBuild.exe",
       "args": [
@@ -90,82 +97,74 @@
         "/property:GenerateFullPaths=true",
         "/t:Build",
         "/p:Configuration=Debug",
-        "/p:OutDir=${workspaceFolder}\\bin\\x64\\Debug\\"  // Custom output directory for Windows App
+        "/p:OutDir=${workspaceFolder}\\bin\\x64\\Debug\\"
       ],
-      "problemMatcher": [
-        "$msCompile"
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      }
+      "problemMatcher": ["$msCompile"],
+      "group": { "kind": "build", "isDefault": false }
     },
     {
-      "label": "Clean & Build StaticLib",
+      "label": "Clean & Build DLL",
       "dependsOrder": "sequence",
-      "dependsOn": [
-        "Clean StaticLib with MSBuild",
-        "Build StaticLib with MSBuild"
-      ],
+      "dependsOn": ["Clean DLL", "Build DLL"],
       "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      }
+      "group": { "kind": "build", "isDefault": false }
     },
     {
-      "label": "Clean & Build Exe",
+      "label": "Clean & Build Static Library",
       "dependsOrder": "sequence",
-      "dependsOn": [
-        "Clean Exe with MSBuild",
-        "Build Exe with MSBuild"
-      ],
+      "dependsOn": ["Clean Static Library", "Build Static Library"],
       "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      }
+      "group": { "kind": "build", "isDefault": false }
+    },
+    {
+      "label": "Clean & Build Executable",
+      "dependsOrder": "sequence",
+      "dependsOn": ["Clean Executable", "Build Executable"],
+      "problemMatcher": [],
+      "group": { "kind": "build", "isDefault": false }
     },
     {
       "label": "Clean & Build Windows App",
       "dependsOrder": "sequence",
-      "dependsOn": [
-        "Clean Windows App with MSBuild",
-        "Build Windows App with MSBuild"
-      ],
+      "dependsOn": ["Clean Windows App", "Build Windows App"],
       "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      }
+      "group": { "kind": "build", "isDefault": false }
     },
     {
       "label": "Clean & Build All",
       "dependsOrder": "sequence",
       "dependsOn": [
-        "Clean & Build StaticLib",
-        "Clean & Build Exe",
+        "Clean & Build Static Library",
+        "Clean & Build DLL",
+        "Clean & Build Executable",
         "Clean & Build Windows App"
       ],
       "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      }
+      "group": { "kind": "build", "isDefault": true }
+    },
+    {
+      "label": "Build All",
+      "dependsOrder": "parallel",
+      "dependsOn": [
+        "Build Static Library",
+        "Build DLL",
+        "Build Executable",
+        "Build Windows App"
+      ],
+      "problemMatcher": [],
+      "group": { "kind": "build", "isDefault": false }
     },
     {
       "label": "Clean All",
       "dependsOrder": "sequence",
       "dependsOn": [
-        "Clean StaticLib with MSBuild",
-        "Clean Exe with MSBuild",
-        "Clean Windows App with MSBuild"
+        "Clean Static Library",
+        "Clean DLL",
+        "Clean Executable",
+        "Clean Windows App"
       ],
       "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      }
+      "group": { "kind": "build", "isDefault": false }
     }
   ]
 }

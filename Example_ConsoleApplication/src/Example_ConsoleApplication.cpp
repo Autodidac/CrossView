@@ -1,4 +1,4 @@
-#include <iostream>
+//#include <iostream>
 #include <stdexcept>
 #include <memory>
 #include <thread>
@@ -6,11 +6,14 @@
 
 namespace almond {
     class EntryPoint; // Forward declaration if needed
-}
+    //almond::EntryPoint& ep();
 
+}
 // Structure to handle initialization and run logic
 struct EntryPointInitializer {
     EntryPointInitializer(int width, int height, const wchar_t* title) {
+        
+        //ep().getEntryPoint();
     }
 };
 

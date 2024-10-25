@@ -6,6 +6,7 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include <optional>
 
 // Coroutine function for game logic
 inline almond::Coroutine gameLogicCoroutine() {

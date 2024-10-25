@@ -2,7 +2,7 @@
 
 namespace almond {
 
-    EntryPoint::EntryPoint(int width, int height, const std::wstring& title)
+    EntryPoint::EntryPoint(int width, int height, const std::wstring& title) 
         : pImpl(std::make_unique<Impl>(width, height, title)) {
         // Any additional initialization can be added here
     }

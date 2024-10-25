@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Exports_DLL.h"
+
 #include <memory>
 
 namespace almond {

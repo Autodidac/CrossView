@@ -7,29 +7,29 @@
 
 #ifdef _WIN32
 #ifndef _CONSOLE
-#include "EntryPoint_Win32.h"
+    #include "EntryPoint_Win32.h"
 #endif
 #elif defined(__linux__)
-#include "EntryPoint_X11.h"
+    #include "EntryPoint_X11.h"
 #elif defined(__APPLE__)
-#if TARGET_OS_IOS
-#include "EntryPoint_iOS.mm"
-#else
-#include "EntryPoint_Cocoa.mm"
-#endif
+    #if TARGET_OS_IOS
+        #include "EntryPoint_iOS.mm"
+    #else
+        #include "EntryPoint_Cocoa.mm"
+    #endif
 #elif defined(__ANDROID__)
-#include "EntryPoint_Android.cpp"
+    #include "EntryPoint_Android.cpp"
 #elif defined(__EMSCRIPTEN__)
-#include "EntryPoint_Emscripten.cpp"
+    #include "EntryPoint_Emscripten.cpp"
 #elif defined(_XBOX)
-#include "EntryPoint_XboxSeriesXS.h"
+    #include "EntryPoint_XboxSeriesXS.h"
 #elif defined(_PS5)
-#include "EntryPoint_PS5.h"
+    #include "EntryPoint_PS5.h"
 #endif
 
 namespace almond {
 
-    [[nodiscard]] std::unique_ptr<EntryPoint_Crossplatform> EntryPoint_Crossplatform::create() {
+    extern "C" [[nodiscard]] std::unique_ptr<EntryPoint_Crossplatform> EntryPoint_Crossplatform::create() {
         // Check for console application
         if (isConsoleApplication()) {
 #ifdef _CONSOLE
