@@ -118,12 +118,16 @@ pause
 ```cpp
 #include "CrossView.h"
 
+// Requires no int main() since it's internal to the lib's
+
 ```
 
 
 ### Example Implementation (for Win32)
 ```cpp
 #include "CrossView.h"  // Platform-specific include
+
+// Requires no int main() since it's internal to the lib's
 
 ```
 
