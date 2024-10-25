@@ -11,6 +11,7 @@
 // Coroutine function for game logic
 inline almond::Coroutine gameLogicCoroutine() {
     for (int i = 0; i < 5; ++i) {
+        std::cout << "Logic Coroutine Updated..." << std::endl;
         co_yield i; // Yield game logic frame state
     }
 }
@@ -18,7 +19,7 @@ inline almond::Coroutine gameLogicCoroutine() {
 // Coroutine for simulating physics updates
 inline almond::Coroutine physicsCoroutine() {
     for (int i = 0; i < 5; ++i) {
-        std::cout << "Physics update (coroutine)..." << std::endl;
+        std::cout << "Physics Coroutine Updated..." << std::endl;
         co_yield i;
     }
 }
@@ -26,7 +27,7 @@ inline almond::Coroutine physicsCoroutine() {
 // Coroutine for simulating audio updates
 inline almond::Coroutine audioCoroutine() {
     for (int i = 0; i < 5; ++i) {
-        std::cout << "Audio update (coroutine)..." << std::endl;
+        std::cout << "Audio Coroutine Updated..." << std::endl;
         co_yield i;
     }
 }
@@ -34,7 +35,7 @@ inline almond::Coroutine audioCoroutine() {
 // Coroutine for simulating game system updates
 inline almond::Coroutine gameSystemCoroutine() {
     for (int i = 0; i < 5; ++i) {
-        std::cout << "Game system update (coroutine)..." << std::endl;
+        std::cout << "Game Coroutine Updated..." << std::endl;
         co_yield i;
     }
 }
@@ -58,6 +59,8 @@ int main() {
         bool audioRunning = true;
         bool gameSystemRunning = true;
 
+        std::cout << "Main Thread..." << std::endl;
+
         // Main application loop
         while (gameLogicRunning || physicsRunning || audioRunning || gameSystemRunning) {
             if (gameLogicRunning) {
@@ -80,16 +83,11 @@ int main() {
                 std::cout << "Game System yielded: " << gameSystem.current_value() << std::endl;
             }
 
-            // Simulate a frame sleep for ~60 FPS
-            std::this_thread::sleep_for(std::chrono::milliseconds(16));
-
-            std::cout << "main thread.." << std::endl;
-
             // Optionally, use thread pool for heavy tasks like loading resources
-          threadPool.enqueue([] {
+            threadPool.enqueue([] {
                 std::cout << "Heavy asset loading on thread." << std::endl;
                 std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Simulating work
-            });
+                });
         }
     }
     catch (const std::exception& e) {

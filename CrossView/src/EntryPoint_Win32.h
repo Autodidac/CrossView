@@ -11,11 +11,6 @@
 #ifndef _CONSOLE
 #include "framework.h"
 
-#ifdef _MSC_VER
-// Only for MSVC compilers
-#pragma warning(disable : 4251)
-#endif
-
 namespace almond {
 
     class ENTRYPOINTLIBRARY_API Win32EntryPoint : public EntryPoint_Crossplatform {

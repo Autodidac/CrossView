@@ -9,6 +9,7 @@
 #ifdef _MSC_VER
 // Only for MSVC compilers
 #pragma warning(disable : 4251)
+#pragma warning(disable : 4273)
 #endif
 
 namespace almond {
