@@ -98,13 +98,6 @@ cd build
 cmake ..
 cmake --build .
 ```
-Enable Headless Mode:
-
-To build with headless mode enabled, pass the option when running cmake:
-```sh
-cmake .. -DENABLE_HEADLESS=ON
-cmake --build .
-```
 Run:
 
 After building, you can run the generated executable. If you built with headless mode, the console window will be allocated as needed.
@@ -116,7 +109,7 @@ After building, you can run the generated executable. If you built with headless
 ##### Example Console Batch
 ```batch
 @echo off
-CrossViewExample.exe --headless
+Example_CrossView.exe
 pause
 ```
 
@@ -125,44 +118,12 @@ pause
 ```cpp
 #include "CrossView.h"
 
-int main() {
-    auto crossView = CrossViewer::CrossView::createCrossView();
-    if (crossView->init()) {
-        crossView->createWindow(L"Example Window", 800, 600);
-        // Main loop or additional logic here
-        crossView->shutdown();
-    }
-    return 0;
-}
 ```
 
 
 ### Example Implementation (for Win32)
 ```cpp
-#include "CrossViewWin32.h"  // Platform-specific include
-
-namespace CrossViewer {
-
-    std::unique_ptr<CrossView> CrossView::createCrossView() {
-#if defined(_WIN32)  // Platform check
-        return std::make_unique<CrossViewWin32>();
-#else
-        return std::make_unique<CrossViewNoop>();  // Fallback or other platform-specific class
-#endif
-    }
-
-}
-```
-
-
-### API Reference
-
-```cpp
-CrossViewer::CrossView
-static std::unique_ptr<CrossView> createCrossView()
-bool init()
-bool createWindow(const wchar_t* title, int width, int height)
-void shutdown()
+#include "CrossView.h"  // Platform-specific include
 
 ```
 
