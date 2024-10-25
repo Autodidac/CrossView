@@ -37,7 +37,7 @@ After Windows Update broke my main ssd I had to rebuild from scratch, split scre
 
 
 -----
-
+```cpp
 ## Supported Platforms
 
 - **Windows** (Win32)
@@ -49,7 +49,7 @@ After Windows Update broke my main ssd I had to rebuild from scratch, split scre
 - **PlayStation 5** (PS5)
 - **Xbox**
 - **No-op Console** (Headless mode)
-
+```
 
 
 ## Installation
