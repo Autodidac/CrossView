@@ -80,13 +80,10 @@ Platforms
 
 
 
-### Build using WIN32 (Windows 11 64bit) and vs2022:
-Simply run the provided vs solution file `CrossView.sln` in the main folder
-
-
-### Build using WIN32 (Windows 11 64bit) and vs code:
+### Build using WIN32 ( Windows 11 64bit ) in Visual Studio 2022 and Visual Studio Code Applications:
 Simply open the provided crossview folder in vs code, customized proj and solution files make this possible.
-
+Otherwise for Visual Studio Community 2022
+Simply run the provided vs solution file `CrossView.sln` in the main folder
 
 ### Generate build files using CMake:
 Run cmake to generate the build files, then compile:
