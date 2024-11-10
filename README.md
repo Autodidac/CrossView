@@ -182,7 +182,7 @@ CrossView - A GPT4 Crossplatform Library For All! Almost Entirely Built and Desi
 
 
 
--Also Shout Out to [CrossWindow](https://github.com/alaingalvan/CrossWindow) - Referenced Project and Alternate Library using C++11-17.
+-Also Shout Out to Similar Project [CrossWindow](https://github.com/alaingalvan/CrossWindow) - A Referenced and Alternate Library using C++11-17.
 
 
 
